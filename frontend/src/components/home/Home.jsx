@@ -1,19 +1,28 @@
 import Webcam from 'react-webcam'
+import { Nav, Navbar, NavDropdown, Button } from 'react-bootstrap'
 
-import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import './Home.css'
+
+import { useState } from 'react'
 
 export default function Home() {
+    const [running, setRunning] = useState(true)
+    
+    const toggleRunning = () => {
+        setRunning(!running)
+    }
     return (
-        <div>
+        <div className='home-page'>
             <Header />
-            <Webcam mirrored={true}/>
+            <Webcam className='rounded-4 d-flex m-4' mirrored={true}/>
+            <Button className='ms-4' style={{ backgroundColor: 'orange', borderColor: 'orange' }} onClick={toggleRunning}>{!running ? 'Start' : 'Stop'}</Button>
         </div>
     )
 }
 
 function Header() {
     return (
-        <Navbar>
+        <Navbar className='home-header'>
             <Navbar.Brand className='ms-4'>Sera</Navbar.Brand>
             <Nav>
                 <NavDropdown.Divider />
