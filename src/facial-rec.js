@@ -1,6 +1,6 @@
 //facial-rec.js
 import { useEffect, useState, useRef } from 'react';
-import * as faceDetection from '@tensorflow-models/face-detection';
+import * as faceLandmarksDetection from '@tensorflow-models/face-landmarks-detection';
 import '@tensorflow/tfjs-backend-webgl';
 
 export const useFaceDetector = (videoRef) => {
@@ -9,13 +9,13 @@ export const useFaceDetector = (videoRef) => {
 
     useEffect(() => {
         const loadModel = async () => {
-            const model = faceDetection.SupportedModels.MediaPipeFaceDetector;
+            const model = faceLandmarksDetection.SupportedModels.MediaPipeFaceMesh;
             const detectorConfig = {
-                runtime: 'mediapipe',
-                solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/face_detection'
+                runtime: 'tfjs', // or 'tfjs'
+                solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh',
             };
-            const loadedDetector = await faceDetection.createDetector(model, detectorConfig);
-            setDetector(loadedDetector);
+            const detector = await faceLandmarksDetection.createDetector(model, detectorConfig);
+            setDetector(detector);
         };
 
         loadModel();
