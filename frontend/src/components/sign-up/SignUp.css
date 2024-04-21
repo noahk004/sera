@@ -1,0 +1,14 @@
+.sign-up-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00CBB3;
+}
+
+.sign-up-form {
+    min-width: 400px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 30px;
+}
