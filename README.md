@@ -24,3 +24,6 @@ The importance of organization and understanding the intricacies of why things w
 
 ## What's next for Sera
 Sera is still very much an incomplete project with much potential. Our plan is to implement additional features and create a finished product with a UI that is easy to use and to the point. 
+
+## Authors
+Jason Kim, Lindsay Lim, Sanskar Mishra, Noah Kim
